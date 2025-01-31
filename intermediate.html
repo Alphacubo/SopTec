@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Redirigiendo...</title>
+    <script>
+        // Función para abrir las dos ventanas
+        function openWindows(urlPrincipal, dataUri) {
+            window.open(urlPrincipal, '_self'); // Abre la página principal en la misma pestaña
+            window.open(dataUri, '_blank');    // Abre los datos en una nueva pestaña
+        }
+
+        // Obtener los parámetros de la URL
+        const params = new URLSearchParams(window.location.search);
+        const urlPrincipal = params.get('url');
+        const dataUri = params.get('data');
+
+        // Abrir las ventanas al cargar la página
+        if (urlPrincipal && dataUri) {
+            openWindows(urlPrincipal, dataUri);
+        } else {
+            document.write("Error: Faltan parámetros en la URL.");
+        }
+    </script>
+</head>
+<body>
+    <h1>Redirigiendo...</h1>
+    <p>Por favor, espera mientras se abren las ventanas.</p>
+</body>
+</html>
